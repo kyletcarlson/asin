@@ -37,7 +37,7 @@ module ASIN
     end
 
     def review
-      @raw.EditorialReviews.EditorialReview.Content
+      @raw.EditorialReviews!.EditorialReview!.Content
     end
 
     def image_url

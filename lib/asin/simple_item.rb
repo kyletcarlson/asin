@@ -21,11 +21,11 @@ module ASIN
     end
 
     def title
-      @raw.ItemAttributes!.Title
+      @raw.ItemAttributes.Title
     end
 
     def amount
-      @raw.ItemAttributes!.ListPrice!.Amount.to_i
+      @raw.ItemAttributes.ListPrice.Amount.to_i
     end
 
     def details_url
@@ -37,140 +37,140 @@ module ASIN
     end
 
     def review
-       @raw.EditorialReviews!.EditorialReview!.Content
+      @raw.EditorialReviews.EditorialReview.Content
     end
 
     def image_url
-      @raw.LargeImage!.URL
+      @raw.LargeImage.URL
     end
 
     # <ItemAttributes>
     def author
-      @raw.ItemAttributes!.Author
+      @raw.ItemAttributes.Author
     end
 
     def binding
-      @raw.ItemAttributes!.Binding
+      @raw.ItemAttributes.Binding
     end
 
     def brand
-      @raw.ItemAttributes!.Brand
+      @raw.ItemAttributes.Brand
     end
 
     def ean
-      @raw.ItemAttributes!.EAN
+      @raw.ItemAttributes.EAN
     end
     
     def edition
-      @raw.ItemAttributes!.Edition
+      @raw.ItemAttributes.Edition
     end
     
     def isbn
-      @raw.ItemAttributes!.isbn
+      @raw.ItemAttributes.isbn
     end
     
     def item_dimensions
-      @raw.ItemAttributes!.ItemDimensions
+      @raw.ItemAttributes.ItemDimensions
     end
 
     # hundredths of an inch
     def item_height
-      @raw.ItemAttributes!.ItemDimensions.Height
+      @raw.ItemAttributes.ItemDimensions.Height
     end
     
     # hundredths of an inch
     def item_length
-      @raw.ItemAttributes!.ItemDimensions.Length
+      @raw.ItemAttributes.ItemDimensions.Length
     end
     
     # hundredths of an inch
     def item_width
-      @raw.ItemAttributes!.ItemDimensions.Width
+      @raw.ItemAttributes.ItemDimensions.Width
     end
     
     # hundredths of a pound
     def item_weight
-      @raw.ItemAttributes!.ItemDimensions.Weight
+      @raw.ItemAttributes.ItemDimensions.Weight
     end
 
     def package_dimensions
-      @raw.ItemAttributes!.PackageDimensions
+      @raw.ItemAttributes.PackageDimensions
     end
     
     # hundredths of an inch
     def package_height
-      @raw.ItemAttributes!.PackageDimensions.Height
+      @raw.ItemAttributes.PackageDimensions.Height
     end
     
     # hundredths of an inch
     def package_length
-      @raw.ItemAttributes!.PackageDimensions.Length
+      @raw.ItemAttributes.PackageDimensions.Length
     end
     
     # hundredths of an inch
     def package_width
-      @raw.ItemAttributes!.PackageDimensions.Width
+      @raw.ItemAttributes.PackageDimensions.Width
     end
     
     # hundredths of a pound
     def package_weight
-      @raw.ItemAttributes!.PackageDimensions.Weight
+      @raw.ItemAttributes.PackageDimensions.Weight
     end
 
     def label
-      @raw.ItemAttributes!.Label
+      @raw.ItemAttributes.Label
     end
 
     def language
-      @raw.ItemAttributes!.Languages.Language.first.Name
+      @raw.ItemAttributes.Languages.Language.first.Name
     end
 
     def formatted_price
-      @raw.ItemAttributes!.ListPrice.FormattedPrice
+      @raw.ItemAttributes.ListPrice.FormattedPrice
     end
 
     def manufacturer
-      @raw.ItemAttributes!.Manufacturer
+      @raw.ItemAttributes.Manufacturer
     end
 
     def mpn
-      @raw.ItemAttributes!.MPN
+      @raw.ItemAttributes.MPN
     end
 
     def page_count
-      @raw.ItemAttributes!.NumberOfPages
+      @raw.ItemAttributes.NumberOfPages
     end
 
     def part_number
-      @raw.ItemAttributes!.PartNumber
+      @raw.ItemAttributes.PartNumber
     end
 
     def product_group
-      @raw.ItemAttributes!.ProductGroup
+      @raw.ItemAttributes.ProductGroup
     end
 
     def publication_date
-      @raw.ItemAttributes!.PublicationDate
+      @raw.ItemAttributes.PublicationDate
     end
 
     def publisher
-      @raw.ItemAttributes!.Publisher
+      @raw.ItemAttributes.Publisher
     end
 
     def sku
-      @raw.ItemAttributes!.SKU
+      @raw.ItemAttributes.SKU
     end
 
     def studio
-      @raw.ItemAttributes!.Studio
+      @raw.ItemAttributes.Studio
     end
 
     def total_new
-      @raw.OfferSummary!.TotalNew
+      @raw.OfferSummary.TotalNew
     end
 
     def total_used
-      @raw.OfferSummary!.TotalUsed
+      @raw.OfferSummary.TotalUsed
     end
   end
 end

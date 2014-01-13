@@ -179,12 +179,6 @@ module ASIN
       arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_item(item)}
     end
 
-    def search_titles(*keywords)
-      params = keywords.last.is_a?(Hash) ? keywords.pop : {:SearchIndex => :Books, :ResponseGroup => :Large }
-      response = call(params.merge(:Operation => :ItemSearch, :Title => keywords.join(' ')))
-      arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_item(item)}
-    end
-
     # Performs an +ItemSearch+ REST call against the Amazon API.
     #
     # Expects a Hash of search params and returns a list of +SimpleItem+s:

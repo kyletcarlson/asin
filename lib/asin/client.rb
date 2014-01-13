@@ -193,9 +193,19 @@ module ASIN
     #
     # Have a look at the different search index values on the Amazon-Documentation[http://docs.amazonwebservices.com/AWSECommerceService/latest/DG/index.html]
     #
+    # def search(params={:SearchIndex => :Books, :ResponseGroup => :Large})
+    #   response = call(params.merge(:Operation => :ItemSearch))
+    #   arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_item(item)}
+    # end
+
     def search(params={:SearchIndex => :Books, :ResponseGroup => :Large})
       response = call(params.merge(:Operation => :ItemSearch))
-      arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_item(item)}
+      items = arrayfy(response['ItemSearchResponse']['Items']['Item']).map {|item| handle_item(item)}
+      response['ItemSearchResponse']['TotalResults'] = response['ItemSearchResponse']['Items']['TotalResults']
+      response['ItemSearchResponse']['TotalPages'] = response['ItemSearchResponse']['Items']['TotalPages']
+      response['ItemSearchResponse']['MoreSearchResultsUrl'] = response['ItemSearchResponse']['Items']['MoreSearchResultsUrl']
+      response['ItemSearchResponse']['Items'] = items
+      response
     end
 
     # Performs an +BrowseNodeLookup+ REST call against the Amazon API.

@@ -38,7 +38,5 @@ module ASIN
       return [] unless @raw.TopItemSet
       @raw.TopItemSet.TopItem.is_a?(Array) ? @raw.TopItemSet.TopItem : [@raw.TopItemSet.TopItem]
     end
-
   end
-
 end

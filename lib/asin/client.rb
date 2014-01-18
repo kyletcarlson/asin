@@ -152,7 +152,7 @@ module ASIN
     #   lookup(asin, :ResponseGroup => [:Small, :AlternateVersions])
     #
     def lookup(*asins)
-      params = asins.last.is_a?(Hash) ? asins.pop : {:ResponseGroup => :Large}
+      params = asins.last.is_a?(Hash) ? asins.pop : {:ResponseGroup => :Large, :Availability => :Availabile }
       response = call(params.merge(:Operation => :ItemLookup, :ItemId => asins.join(',')))
       arrayfy(response['ItemLookupResponse']['Items']['Item']).map {|item| handle_item(item)}
     end

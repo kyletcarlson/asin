@@ -40,6 +40,10 @@ module ASIN
       @raw.EditorialReviews!.EditorialReview!.Content
     end
 
+    def customer_review_url
+      @raw.CustomerReviews.first[1]
+    end
+
     def image_url
       @raw.LargeImage.URL
     end

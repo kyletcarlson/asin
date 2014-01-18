@@ -26,7 +26,7 @@ module ASIN
 
     def top_sellers
       return [] unless @raw.TopSellers
-      [@raw.TopSellers]
+      @raw.TopSellers
     end
 
     def children

@@ -24,6 +24,11 @@ module ASIN
       @raw.BrowseNodeId
     end
 
+    def top_sellers
+      return [] unless @raw.TopSellers
+      [@raw.TopSellers]
+    end
+
     def children
       return [] unless @raw.Children
       @raw.Children.BrowseNode.is_a?(Array) ? @raw.Children.BrowseNode : [@raw.Children.BrowseNode]

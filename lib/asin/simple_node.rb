@@ -34,6 +34,16 @@ module ASIN
       @raw.NewReleases.NewRelease
     end
 
+    # def most_gifted
+    #   return [] unless @raw.TopSellers
+    #   @raw.TopSellers.TopSeller
+    # end
+
+    # def most_gifted
+    #   return [] unless @raw.TopSellers
+    #   @raw.TopSellers.TopSeller
+    # end
+
     def children
       return [] unless @raw.Children
       @raw.Children.BrowseNode.is_a?(Array) ? @raw.Children.BrowseNode : [@raw.Children.BrowseNode]
@@ -45,8 +55,8 @@ module ASIN
     end
 
     def top_item_set
-      return [] unless @raw.TopItemSet
-      @raw.TopItemSet.TopItem.is_a?(Array) ? @raw.TopItemSet.TopItem : [@raw.TopItemSet.TopItem]
+      return [] unless @raw.TopItemSets
+      @raw.TopItemSets.TopItem.is_a?(Array) ? @raw.TopItemSets.TopItem : [@raw.TopItemSets.TopItem]
     end
   end
 end

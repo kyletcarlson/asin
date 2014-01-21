@@ -226,7 +226,7 @@ module ASIN
     # Have a look at the different browse node values on the Amazon-Documentation[http://docs.amazonwebservices.com/AWSECommerceService/latest/DG/index.html]
     #
 
-    # ResponseGroup=NewReleases,TopSellers
+    # ResponseGroup=NewReleases,TopSellers,MostWishedFor,MostGifted
 
     def browse_node(node_id, params={:ResponseGroup => :BrowseNodeInfo})
       response = call(params.merge(:Operation => :BrowseNodeLookup, :BrowseNodeId => node_id))

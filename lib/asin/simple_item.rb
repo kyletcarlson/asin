@@ -25,7 +25,7 @@ module ASIN
     end
 
     def amount
-      @raw.ItemAttributes.ListPrice.Amount.to_i / 100
+      @raw.ItemAttributes.ListPrice.Amount.to_f / 100
     end
 
     def details_url

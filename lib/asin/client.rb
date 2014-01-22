@@ -391,7 +391,8 @@ module ASIN
           Crack::XML.parse(resp)
         else
           log(:error, "got response='#{response.body}'")
-          raise "request failed with response-code='#{response.code}'"
+raise "hello!!!"
+          # raise "request failed with response-code='#{response.code}'"
         end
       end
 

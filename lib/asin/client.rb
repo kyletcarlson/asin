@@ -4,6 +4,7 @@ require 'rexml/document'
 require 'crack/xml'
 require 'cgi'
 require 'base64'
+require 'awesome_print'
 
 # ASIN (Amazon Simple INterface) is a gem for easy access of the Amazon E-Commerce-API.
 # It is simple to configure and use. Since it's very small and flexible, it is easy to extend it to your needs.
@@ -151,6 +152,7 @@ module ASIN
     #
     #   lookup(asin, :ResponseGroup => [:Small, :AlternateVersions])
     #
+ 
     def lookup(*asins)
       params = asins.last.is_a?(Hash) ? asins.pop : {:ResponseGroup => :Large, :Availability => :Availabile }
       response = call(params.merge(:Operation => :ItemLookup, :ItemId => asins.join(',')))
@@ -391,8 +393,7 @@ module ASIN
           Crack::XML.parse(resp)
         else
           log(:error, "got response='#{response.body}'")
-raise "hello!!!"
-          # raise "request failed with response-code='#{response.code}'"
+          raise "request failed with response-code='#{response.code}'"
         end
       end
 
